@@ -4,15 +4,15 @@ print 'Verifying config installation'
 
 local os_type = nil
 
-local config_path = vim.env.HOME
+local config_path = vim.env.XDG_CONFIG_HOME
 local packer_path = nil
 
 if config_path == nil then
-  config_path = vim.env.XDG_HOME_CONFIG
-  os_type = 'Windows'
+  config_path = vim.env.HOME
+  os_type = 'Linux'
   packer_path = config_path .. '/nvim-data/site/pack/'
 else
-  os_type = 'Linux'
+  os_type = 'Windows'
   packer_path = '~/.local/share/nvim/site/pack/'
 end
 

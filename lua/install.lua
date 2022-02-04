@@ -19,16 +19,14 @@ else
 end
 
 local function install_packer()
+  print 'Trying install packer'
   os.execute('git clone --depth 1 https://www.github.com/wbthomason/packer.nvim '
      .. packer_path .. 'packer/start/packer.nvim')
 end
 
-if vim.fn.isdirectory(packer_path .. 'packer.nvim') ~= '0' then
+if vim.fn.isdirectory(packer_path .. 'packer/start/packer.nvim') ~= 0 then
   packer_found = true
-  print 'Packer is installed'
---  vim.cmd ':PackerInstall'
 else
-  print 'Packer is not installed'
   install_packer()
 end
 
@@ -38,3 +36,5 @@ local function recap()
   print('packer found: ' .. packer_found)
   print('packer_path: ' .. packer_path)
 end
+
+return packer_found

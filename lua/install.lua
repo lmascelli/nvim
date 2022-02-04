@@ -10,20 +10,23 @@ local packer_path = nil
 if config_path == nil then
   config_path = vim.env.HOME
   os_type = 'Linux'
-  packer_path = config_path .. '/nvim-data/site/pack/'
+  packer_path = '~/.local/share/nvim/site/pack/'
 else
   os_type = 'Windows'
-  packer_path = '~/.local/share/nvim/site/pack/'
+  packer_path = config_path .. '/nvim-data/site/pack/'
 end
 
 local function install_packer()
-  os.execute('git clone --depth 1 https://www.github.com/wbthomason/packer.nvim ' .. packer_path .. 'packer/start/packer.nvim')
+  os.execute('git clone --depth 1 https://www.github.com/wbthomason/packer.nvim '
+     .. packer_path .. 'packer/start/packer.nvim')
 end
 
-if vim.fn.isdirectory(packer_path .. 'packer') then
+print('' .. vim.fn.isdirectory(packer_path .. 'packer.nvim'))
+if vim.fn.isdirectory(packer_path .. 'packer.nvim') ~= '0' then
   print 'Packer is installed'
 else
   print 'Packer is not installed'
+  install_packer()
 end
 
 if os_type == 'Linux' then
@@ -33,3 +36,11 @@ elseif os_type == 'Windows' then
 else
   print 'Error in detecting OS type'
 end
+
+local function recap()
+  print('OS: ' .. os_type)
+  print('nvim path: ' .. config_path)
+  print('packer_path: ' .. packer_path)
+end
+
+recap()

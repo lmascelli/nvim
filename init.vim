@@ -1,6 +1,7 @@
 lua << EOF
 require 'install'
---require 'basic'
---require 'plugins'
---require 'keybinding'
+require 'plugins'
+vim.cmd ':PackerInstall'
+require 'basic'
+require 'keybinding'
 EOF

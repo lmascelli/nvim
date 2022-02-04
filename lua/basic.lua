@@ -14,6 +14,6 @@ local color = 'gruvbox'
 
 if vim.fn.has('GuiFont') then
     set.guifont = 'JetBrains Mono:h9'
---    vim.cmd (':colorscheme ' .. color)
+    vim.cmd (':colorscheme ' .. color)
 end
 

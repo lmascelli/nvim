@@ -3,9 +3,11 @@ print 'Verifying config installation'
 -- Creating local variables but maybe consider make them global
 
 local os_type = nil
-
 local config_path = vim.env.XDG_CONFIG_HOME
+
+-- Packer variable
 local packer_path = nil
+local packer_found = false
 
 if config_path == nil then
   config_path = vim.env.HOME
@@ -21,26 +23,18 @@ local function install_packer()
      .. packer_path .. 'packer/start/packer.nvim')
 end
 
-print('' .. vim.fn.isdirectory(packer_path .. 'packer.nvim'))
 if vim.fn.isdirectory(packer_path .. 'packer.nvim') ~= '0' then
+  packer_found = true
   print 'Packer is installed'
+--  vim.cmd ':PackerInstall'
 else
   print 'Packer is not installed'
   install_packer()
 end
 
-if os_type == 'Linux' then
-  print 'Linux Config'
-elseif os_type == 'Windows' then
-  print 'Windows Config'
-else
-  print 'Error in detecting OS type'
-end
-
 local function recap()
   print('OS: ' .. os_type)
   print('nvim path: ' .. config_path)
+  print('packer found: ' .. packer_found)
   print('packer_path: ' .. packer_path)
 end
-
-recap()

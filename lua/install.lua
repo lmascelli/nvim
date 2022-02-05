@@ -1,5 +1,3 @@
-print 'Verifying config installation'
-
 -- Creating local variables but maybe consider make them global
 
 local os_type = nil

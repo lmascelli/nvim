@@ -12,7 +12,7 @@ set.mouse = 'a'
 
 local color = 'gruvbox'
 
-if vim.fn.has('GuiFont') ~= 0 then
+if vim.fn.exists('GuiFont') ~= 0 then
     set.guifont = 'JetBrains Mono:h9'
     vim.cmd (':colorscheme ' .. color)
 end

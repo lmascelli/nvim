@@ -24,8 +24,6 @@ local function install_packer()
      .. packer_path)
 end
 
-print(packer_path)
-print(vim.fn.isdirectory(packer_path))
 if vim.fn.isdirectory(packer_path) ~= 0 then
   packer_found = true
 else
@@ -39,6 +37,6 @@ local function recap()
   print('packer_path: ' .. packer_path)
 end
 
-recap()
+-- recap()
 
 return packer_found

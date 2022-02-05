@@ -1,7 +1,5 @@
 lua << EOF
-local var packer_installed = require 'install'
-print(packer_installed)
-if packer_installed then
+if require 'install' then
   require 'plugins'
   vim.cmd ':PackerInstall'
   require 'basic'

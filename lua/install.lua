@@ -19,7 +19,7 @@ else
 end
 
 local function install_packer()
-  print 'Trying install packer'
+  print 'Trying install packer...'
   os.execute('git clone --depth 1 https://www.github.com/wbthomason/packer.nvim '
      .. packer_path .. 'packer/start/packer.nvim')
 end

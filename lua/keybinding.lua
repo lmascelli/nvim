@@ -30,14 +30,14 @@ keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 
 -- Coc-Nvim
 local coc = require('coc')
-keymap('i', '<c-space>', 'coc#refresh()', {expr = true, silent = true})
+keymap('n', '<c-space>', 'coc#refresh()', {silent=true, expr=true})
 keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', {silent=true})
 keymap('n', ']g', '<Plug>(coc-diagnostic-next)', {silent=true})
 keymap('n', 'gd', '<Plug>(coc-definition)', {silent=true})
 keymap('n', 'gy', '<Plug>(coc-type-definition)', {silent=true})
 keymap('n', 'gi', '<Plug>(coc-implementation)', {silent=true})
 keymap('n', 'gr', '<Plug>(coc-references)', {silent=true})
-coc.coc_show_documentation_K()
+coc.coc_complete_C_Space()
 
 -- CocExplorer
 keymap('n', '<leader>e', '<Cmd>CocCommand explorer<cr>', {noremap = true})

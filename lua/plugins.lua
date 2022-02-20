@@ -1,5 +1,8 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  use 'sirver/UltiSnips'
+  use 'junegunn/fzf.vim'
+  use 'neovim/nvim-lspconfig'
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'morhetz/gruvbox'
   use 'voldikss/vim-floaterm'

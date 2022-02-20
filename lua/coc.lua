@@ -2,15 +2,7 @@ return
 {
   coc_complete_C_Space = function()
     vim.cmd (
-[[
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <C-Space>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ coc#refresh()]]
+'inoremap <silent><expr> <c-space> coc#refresh()'
     )
   end,
 

@@ -8,6 +8,7 @@ if packer_found then
     require 'basic'
     require 'keybinding'
     require 'nvui'
+    require 'mylspconfig'
   else
     vim.cmd(install_check)
   end

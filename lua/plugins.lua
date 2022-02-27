@@ -26,7 +26,7 @@ else
   require 'packer'.startup( function()
     use 'wbthomason/packer.nvim'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
+    use 'akinsho/toggleterm.nvim'
   end
   )
   vim.cmd ':PackerInstall'
@@ -36,6 +36,14 @@ else
   vim.opt.termguicolors = true
   require 'bufferline'.setup{}
 
+  -- toggleterm --
+  require 'toggleterm'.setup{
+    open_mapping = [[<c-\>]],
+    direction = 'float',
+    float_opts = {
+      border = 'curved'
+    }
+  }
 end
 
 

@@ -37,11 +37,6 @@ keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
--- Terminal keybindigs --
-
-vim.api.nvim_set_keymap('n', '<leader>t', ':lua require "term".toggle_term()<cr>a', {})
-vim.api.nvim_set_keymap('t', '<esc>', '<c-\\><c-n>:lua require "term".toggle_term()<cr>', {})
-
 -- PLUGINS KEYBINDINGS --
 
 function plugins_keybindings()

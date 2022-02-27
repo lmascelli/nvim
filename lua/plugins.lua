@@ -1,12 +1,15 @@
 -- CHECK PACKER INSTALLATION
 
+local config_dir = ""
 local packer_dir = ""
 
 function check_packer()
   local win = os.getenv("XDG_CONFIG_HOME")
   if win ~= nil then
+    config_dir = win .. "nvim/"
     packer_dir = win .. "nvim-data\\site\\pack\\packer\\start\\"
   else
+    config_dir = os.getenv("HOME") .. ".config/nvim"
     packer_dir = os.getenv("HOME") .. ".local/share/nvim/site/pack/packer/start/"
   end
   if vim.fn.isdirectory(packer_dir .. 'packer.nvim') == 1 then
@@ -30,6 +33,14 @@ else
   end
   )
   vim.cmd ':PackerInstall'
+
+  local plugins_downloaded = config_dir .. 'plugin_downloaded'
+  if vim.fn.filereadable(plugin_downloaded) == 0 then
+    vim.cmd ([[:e ]] .. plugins_downloaded .. [[
+    :w
+    :bd]])
+  else
+  end
 
   -- CONFIG PLUGINS --
   -- bufferline --

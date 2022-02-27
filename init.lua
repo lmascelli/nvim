@@ -1,1 +1,2 @@
-require 'packer'.startup()
+require 'basic'
+require 'plugins'

@@ -35,10 +35,9 @@ else
   vim.cmd ':PackerInstall'
 
   local plugins_downloaded = config_dir .. 'plugin_downloaded'
-  if vim.fn.filereadable(plugin_downloaded) == 0 then
-    vim.cmd ([[:e ]] .. plugins_downloaded .. [[
-    :w
-    :bd]])
+  print(vim.fn.filereadable(plugins_downloaded))
+  if vim.fn.filereadable(plugins_downloaded) == 0 then
+    os.execute('echo "" >> ' .. plugins_downloaded) 
   else
 
   -- CONFIG PLUGINS --

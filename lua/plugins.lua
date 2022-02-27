@@ -40,7 +40,6 @@ else
     :w
     :bd]])
   else
-  end
 
   -- CONFIG PLUGINS --
   -- bufferline --
@@ -55,6 +54,7 @@ else
       border = 'curved'
     }
   }
+  end
 end
 
 

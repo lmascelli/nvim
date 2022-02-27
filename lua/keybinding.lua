@@ -1,6 +1,8 @@
 local keymap = vim.api.nvim_set_keymap
 
 
+-- BASIC KEYBINDINGS --
+
 -- Leader key --
 vim.g.mapleader = ' '
 
@@ -28,27 +30,30 @@ keymap('n', '<leader>b7', '<cmd>b7<cr>', {})
 keymap('n', '<leader>b8', '<cmd>b8<cr>', {})
 keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 
--- Coc-Nvim
-local coc = require('coc')
-keymap('n', '<c-space>', 'coc#refresh()', {silent=true, expr=true})
-keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', {silent=true})
-keymap('n', ']g', '<Plug>(coc-diagnostic-next)', {silent=true})
-keymap('n', 'gd', '<Plug>(coc-definition)', {silent=true})
-keymap('n', 'gy', '<Plug>(coc-type-definition)', {silent=true})
-keymap('n', 'gi', '<Plug>(coc-implementation)', {silent=true})
-keymap('n', 'gr', '<Plug>(coc-references)', {silent=true})
-coc.coc_complete_C_Space()
-
--- CocExplorer
-keymap('n', '<leader>e', '<Cmd>CocCommand explorer<cr>', {noremap = true})
-
--- Terminal
-keymap('n', '<leader>t', '<cmd>FloatermToggle<cr>', {})
-keymap('t', '<esc>', '<cmd>FloatermToggle<cr>', {})
-
 
 -- Utility keybindings
 
 keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
+
+-- Terminal keybindigs --
+
+vim.api.nvim_set_keymap('n', '<leader>t', ':lua require "term".toggle_term()<cr>a', {})
+vim.api.nvim_set_keymap('t', '<esc>', '<c-\\><c-n>:lua require "term".toggle_term()<cr>', {})
+
+-- PLUGINS KEYBINDINGS --
+
+function plugins_keybindings()
+
+end
+
+function plugins_key(packer_ok)
+  if packer_ok == true then
+    plugins_keybindings()
+  end
+end
+
+return {
+  plugins_key = plugins_key
+}

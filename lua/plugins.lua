@@ -16,13 +16,29 @@ function check_packer()
   end
 end
 
-if (check_packer() ~= true) then
+local packer_ok = check_packer()
+
+if (packer_ok ~= true) then
   os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. 
              packer_dir .. 'packer.nvim')
 else
+  -- INSTALL PLUGINS --
   require 'packer'.startup( function()
     use 'wbthomason/packer.nvim'
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+
   end
   )
   vim.cmd ':PackerInstall'
+
+  -- CONFIG PLUGINS --
+  -- bufferline --
+  vim.opt.termguicolors = true
+  require 'bufferline'.setup{}
+
 end
+
+
+return {
+  packer_ok = packer_ok,
+}

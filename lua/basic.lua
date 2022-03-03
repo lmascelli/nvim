@@ -24,3 +24,7 @@ set.number = true
 set.relativenumber = true
 
 set.signcolumn = 'number'
+
+set.termguicolors = true
+
+vim.cmd "colorscheme darkblue"

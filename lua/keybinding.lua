@@ -8,10 +8,10 @@ vim.g.mapleader = ' '
 
 -- Window key
 
-keymap('n', '<leader>h', '<c-w>h', {})
-keymap('n', '<leader>l', '<c-w>l', {})
-keymap('n', '<leader>j', '<c-w>j', {})
-keymap('n', '<leader>k', '<c-w>k', {})
+keymap('n', '<leader>wh', '<c-w>h', {})
+keymap('n', '<leader>wl', '<c-w>l', {})
+keymap('n', '<leader>wj', '<c-w>j', {})
+keymap('n', '<leader>wk', '<c-w>k', {})
 keymap('n', '<leader>wv', '<cmd>vsplit<cr>', {})
 keymap('n', '<leader>wh', '<cmd>split<cr>', {})
 
@@ -36,19 +36,3 @@ keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
-
--- PLUGINS KEYBINDINGS --
-
-function plugins_keybindings()
-
-end
-
-function plugins_key(packer_ok)
-  if packer_ok == true then
-    plugins_keybindings()
-  end
-end
-
-return {
-  plugins_key = plugins_key
-}

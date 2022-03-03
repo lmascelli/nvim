@@ -31,6 +31,7 @@ else
   -- DOWNLOAD PLUGINS --
   require 'packer'.startup( function()
     use 'wbthomason/packer.nvim'
+    use 'neovim/nvim-lspconfig'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'akinsho/toggleterm.nvim'
   end
@@ -47,9 +48,12 @@ else
     else
 
     -- CONFIG PLUGINS --
+    -- lspconfig
+    require 'lsp_config'
+
     -- bufferline --
     vim.opt.termguicolors = true
-    require 'bufferline'.setup{}
+    require 'bufferline_config'
   
     -- toggleterm --
     require 'toggleterm'.setup{

@@ -52,7 +52,6 @@ else
     require 'lsp_config'
 
     -- bufferline --
-    vim.opt.termguicolors = true
     require 'bufferline_config'
   
     -- toggleterm --

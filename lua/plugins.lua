@@ -3,15 +3,16 @@
 local config_dir = ""
 local packer_dir = ""
 
+local win = vim.loop.os_uname().version:match 'Windows'
 function check_packer()
   local linux = os.getenv("TERM")
-  if linux ~= nil then
+  if win ~= nil then
+    local win_dir = os.getenv("XDG_CONFIG_HOME")
+    config_dir = win_dir .. "nvim/"
+    packer_dir = win_dir .. "nvim-data\\site\\pack\\packer\\start\\"
+    else
     config_dir = os.getenv("HOME") .. "/.config/nvim"
     packer_dir = os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/start/"
-    else
-    local win = os.getenv("XDG_CONFIG_HOME")
-    config_dir = win .. "nvim/"
-    packer_dir = win .. "nvim-data\\site\\pack\\packer\\start\\"
   end
   if vim.fn.isdirectory(packer_dir .. 'packer.nvim') == 1 then
     return true
@@ -22,6 +23,10 @@ end
 
 local packer_ok = check_packer()
 
+local can_setup = false
+
+function setup(config)
+
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
   os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. 
@@ -31,7 +36,8 @@ else
   -- DOWNLOAD PLUGINS --
   require 'packer'.startup( function()
     use 'wbthomason/packer.nvim'
-    use 'neovim/nvim-lspconfig'
+    use {'neovim/nvim-lspconfig'}
+    use {'neoclide/coc.nvim', branch = 'release'}
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'akinsho/toggleterm.nvim'
   end
@@ -46,12 +52,12 @@ else
     if vim.fn.filereadable(plugins_downloaded) == 0 then
       os.execute('echo "" >> ' .. plugins_downloaded) 
     else
+      can_setup = true
+    end
+  end
+end
 
-    -- CONFIG PLUGINS --
-    -- lspconfig
-    require 'lsp_config'
-
-    -- bufferline --
+        -- bufferline --
     require 'bufferline_config'
   
     -- toggleterm --
@@ -62,10 +68,10 @@ else
         border = 'curved'
       }
     }
-    end
   end
-end
+
 
 return {
   packer_ok = packer_ok,
+  setup = setup
 }

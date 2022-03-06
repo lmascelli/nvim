@@ -36,3 +36,11 @@ keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
+
+local function plugins(plug_ok)
+  if plug_ok then
+    keymap('n', '<leader>e', '<cmd>CocCommand explorer<cr>', {})
+  end
+end
+
+return {plugins = plugins}

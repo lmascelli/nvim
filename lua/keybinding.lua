@@ -13,7 +13,7 @@ keymap('n', '<leader>wl', '<c-w>l', {})
 keymap('n', '<leader>wj', '<c-w>j', {})
 keymap('n', '<leader>wk', '<c-w>k', {})
 keymap('n', '<leader>wv', '<cmd>vsplit<cr>', {})
-keymap('n', '<leader>wh', '<cmd>split<cr>', {})
+keymap('n', '<leader>wo', '<cmd>split<cr>', {})
 
 -- Buffer key
 
@@ -40,6 +40,11 @@ keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 local function plugins(plug_ok)
   if plug_ok then
     keymap('n', '<leader>e', '<cmd>CocCommand explorer<cr>', {})
+    keymap('n', '<c-P>', 'CocActionAsync("doHover")', {
+      silent = true,
+      nowait = true,
+      expr = true,
+    })
   end
 end
 

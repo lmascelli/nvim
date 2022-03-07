@@ -4,5 +4,6 @@
     "python",
     "json"
   ],
-  "Lua.telemetry.enable": false
+  "Lua.telemetry.enable": false,
+  "python.formatting.provider": "autopep8"
 }

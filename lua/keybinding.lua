@@ -40,6 +40,11 @@ keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 local function plugins(plug_ok)
   if plug_ok then
     keymap('n', '<leader>e', '<cmd>CocCommand explorer<cr>', {})
+    keymap('n', '<c-P>', 'CocActionAsync("doHover")', {
+      silent = true,
+      nowait = true,
+      expr = true,
+    })
   end
 end
 

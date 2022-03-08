@@ -13,7 +13,7 @@ keymap('n', '<leader>wl', '<c-w>l', {})
 keymap('n', '<leader>wj', '<c-w>j', {})
 keymap('n', '<leader>wk', '<c-w>k', {})
 keymap('n', '<leader>wv', '<cmd>vsplit<cr>', {})
-keymap('n', '<leader>wh', '<cmd>split<cr>', {})
+keymap('n', '<leader>wo', '<cmd>split<cr>', {})
 
 -- Buffer key
 

@@ -39,12 +39,22 @@ keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
 local function plugins(plug_ok)
   if plug_ok then
-    keymap('n', '<leader>e', '<cmd>CocCommand explorer<cr>', {})
-    keymap('n', '<c-P>', 'CocActionAsync("doHover")', {
+    keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
+    keymap('n', '<leader>gh', 'CocActionAsync("doHover")', {
       silent = true,
       nowait = true,
       expr = true,
     })
+    keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {
+      silent = true,
+      expr = true,
+    })
+    keymap('i', '<c-x><c-o>', 'coc#refresh()', {
+      silent = true,
+      expr = true,
+    })
+    keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
+    keymap('n', '<leader>gd', '<cmd>CocList diagnostics<cr>', {})
   end
 end
 

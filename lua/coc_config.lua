@@ -4,7 +4,6 @@ vim.g.coc_global_extensions =
     'coc-lua',
     'coc-pyright',
     'coc-pairs',
-    'coc-explorer'
   }
 
 return {

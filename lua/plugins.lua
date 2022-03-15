@@ -36,6 +36,7 @@ else
     use {'neoclide/coc.nvim', branch = 'release'}
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'akinsho/toggleterm.nvim'
+    use 'kyazdani42/nvim-tree.lua'
   end
   )
   vim.cmd ':PackerInstall'
@@ -71,6 +72,8 @@ local setup = function(config)
         border = 'curved'
       }
     }
+
+    require 'nvim-tree'.setup {}
  end
 end
 

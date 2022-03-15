@@ -2,7 +2,8 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "lua",
     "python",
-    "json"
+    "json",
+    "rust"
   ],
   "python.formatting.provider": "autopep8",
   "Lua.telemetry.enable": false

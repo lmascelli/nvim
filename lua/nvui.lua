@@ -1,3 +1,3 @@
-vim.opt.guifont = 'Cascadia Code PL:h10'
+vim.opt.guifont = 'Cascadia Code:h10'
 
 vim.cmd 'colorscheme gruvbox'

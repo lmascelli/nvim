@@ -6,9 +6,11 @@ local config = {
     lsp_enabled = true
   }
 }
-
-local plugins = require 'plugins'
-plugins.setup(config)
 require 'filetypes'
-require 'keybinding'.plugins(plugins.packer_ok)
 
+if not vim.g.vscode then
+  local plugins = require 'plugins'
+  plugins.setup(config)
+  require 'keybinding'.plugins(plugins.packer_ok)
+else
+end

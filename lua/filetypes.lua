@@ -15,5 +15,3 @@ vim.fn.setreg('D', comment_section_macro)
 -- insert a comment at column 37 with @C macro 
 local comment_line_macro = '0$36a 36|d$a;'
 vim.fn.setreg('C', comment_line_macro)
-local comment_macro = "o;---------------------------------\n;\n;---------------------------------ka "
-vim.fn.setreg('c', comment_macro)

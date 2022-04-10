@@ -25,5 +25,5 @@ set.relativenumber = true
 
 set.signcolumn = 'number'
 
-vim.opt.guifont='Cascadia Mono:h9'
-vim.cmd 'colorscheme gruvbox'
+vim.cmd 'highlight CocFloating ctermbg=16'
+vim.cmd 'highlight CocFloating ctermfg=White'

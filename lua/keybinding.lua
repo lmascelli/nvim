@@ -35,14 +35,17 @@ keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 -- Utility keybindings
 
 keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
-keymap('n', '<leader>vr', '<cmd>source $MYVIMRC<cr>', {})
+keymap('n', '<leader>vr', '<cmd>call g:reload_vimrc()<cr>', {
+  silent = true,
+  nowait = true,
+})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
 local function plugins(plug_ok)
   if plug_ok then
     keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
-    keymap('n', '<leader>gh', 'CocActionAsync("doHover")', {
+    keymap('n', '<leader>gk', 'g:show_documentation()', {
       silent = true,
       nowait = true,
       expr = true,

@@ -26,4 +26,4 @@ set.relativenumber = true
 set.signcolumn = 'number'
 
 vim.opt.guifont='Cascadia Mono:h9'
-vim.cmd 'colorscheme gruvbox'
+-- vim.cmd 'colorscheme gruvbox'

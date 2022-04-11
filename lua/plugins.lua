@@ -37,7 +37,10 @@ else
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use 'akinsho/toggleterm.nvim'
     use 'kyazdani42/nvim-tree.lua'
-  end
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }  end
   )
   vim.cmd ':PackerInstall'
 
@@ -74,6 +77,8 @@ local setup = function(config)
     }
 
     require 'nvim-tree'.setup {}
+
+    require 'treesitter'
  end
 end
 

@@ -19,6 +19,7 @@ keymap('n', '<leader>wo', '<cmd>split<cr>', {})
 
 keymap('n', '<leader>bd', '<cmd>bd<cr>', {})
 keymap('n', '<leader>bs', '<cmd>:w<cr>', {})
+keymap('n', '<c-s>', '<cmd>:w<cr>', {})
 keymap('n', '<leader>bl', '<cmd>buffers<cr>', {})
 keymap('n', '<leader>b1', '<cmd>b1<cr>', {})
 keymap('n', '<leader>b2', '<cmd>b2<cr>', {})
@@ -34,13 +35,17 @@ keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 -- Utility keybindings
 
 keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
+keymap('n', '<leader>vr', '<cmd>call g:reload_vimrc()<cr>', {
+  silent = true,
+  nowait = true,
+})
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
 local function plugins(plug_ok)
   if plug_ok then
     keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
-    keymap('n', '<leader>gh', 'CocActionAsync("doHover")', {
+    keymap('n', '<leader>gk', 'g:show_documentation()', {
       silent = true,
       nowait = true,
       expr = true,
@@ -54,7 +59,9 @@ local function plugins(plug_ok)
       expr = true,
     })
     keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
-    keymap('n', '<leader>gd', '<cmd>CocList diagnostics<cr>', {})
+    keymap('n', '<leader>ge', '<Plug>(coc-definition)', {})
+    keymap('n', '<leader>ge', '<cmd>CocList diagnostics<cr>', {})
+    keymap('n', '<leader>g.', '<cmd>CocFix<cr>', {})
   end
 end
 

@@ -9,7 +9,7 @@ function check_packer()
     local win_dir = os.getenv("XDG_CONFIG_HOME")
     config_dir = win_dir .. "nvim/"
     packer_dir = win_dir .. "nvim-data\\site\\pack\\packer\\start\\"
-    else
+  else
     config_dir = os.getenv("HOME") .. "/.config/nvim"
     packer_dir = os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/start/"
   end
@@ -26,21 +26,22 @@ local can_setup = false
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
   os.execute('git clone https://github.com/wbthomason/packer.nvim ' ..
-           packer_dir .. 'packer.nvim')
+  packer_dir .. 'packer.nvim')
 else
   -- INSTALL PACKER --
   -- DOWNLOAD PLUGINS --
-  require 'packer'.startup( function()
+  require 'packer'.startup(function()
     use 'wbthomason/packer.nvim'
     --  use {'neovim/nvim-lspconfig'}
-    use {'neoclide/coc.nvim', branch = 'release'}
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use { 'neoclide/coc.nvim', branch = 'release' }
+    use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
     use 'akinsho/toggleterm.nvim'
     use 'kyazdani42/nvim-tree.lua'
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }  end
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+    }
+  end
   )
   vim.cmd ':PackerInstall'
 
@@ -50,7 +51,7 @@ else
   else
     local plugins_downloaded = config_dir .. 'plugin_downloaded'
     if vim.fn.filereadable(plugins_downloaded) == 0 then
-      os.execute('echo "" >> ' .. plugins_downloaded) 
+      os.execute('echo "" >> ' .. plugins_downloaded)
     else
       can_setup = true
     end
@@ -68,7 +69,7 @@ local setup = function(config)
     require 'bufferline_config'
 
     -- toggleterm --
-    require 'toggleterm'.setup{
+    require 'toggleterm'.setup {
       open_mapping = [[<c-\>]],
       direction = 'float',
       float_opts = {
@@ -79,7 +80,7 @@ local setup = function(config)
     require 'nvim-tree'.setup {}
 
     require 'treesitter'
- end
+  end
 end
 
 return {

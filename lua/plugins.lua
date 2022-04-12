@@ -1,5 +1,4 @@
 -- CHECK PACKER INSTALLATION
-
 local config_dir = ""
 local packer_dir = ""
 
@@ -53,20 +52,30 @@ else
     if vim.fn.filereadable(plugins_downloaded) == 0 then
       os.execute('echo "" >> ' .. plugins_downloaded)
     else
-      can_setup = true
+        local plugins_downloaded = config_dir .. 'plugin_downloaded'
+        if vim.fn.filereadable(plugins_downloaded) == 0 then
+            os.execute('echo "" >> ' .. plugins_downloaded)
+        else
+            can_setup = true
+        end
     end
-  end
 
 end
 
 local setup = function(config)
-  if can_setup then
-    -- coc.nvim --
-    require 'coc_config'
+    if can_setup then
+        -- coc.nvim --
+        require 'coc_config'
 
+        -- bufferline --
+        require 'bufferline_config'
 
-    -- bufferline --
-    require 'bufferline_config'
+        -- toggleterm --
+        require'toggleterm'.setup {
+            open_mapping = [[<c-\>]],
+            direction = 'float',
+            float_opts = {border = 'curved'}
+        }
 
     -- toggleterm --
     require 'toggleterm'.setup {
@@ -77,13 +86,10 @@ local setup = function(config)
       }
     }
 
-    require 'nvim-tree'.setup {}
+        require 'treesitter'
 
     require 'treesitter'
   end
 end
 
-return {
-  packer_ok = packer_ok,
-  setup = setup,
-}
+return {packer_ok = packer_ok, setup = setup}

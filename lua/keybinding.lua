@@ -44,24 +44,47 @@ keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
 local function plugins(plug_ok)
   if plug_ok then
+
     keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
+    
+    -- ***********   CoC keymap   ***************
+    --
+    --    CoC-LSP
+    --
+    -- <space>gk -> Documentation
     keymap('n', '<leader>gk', 'g:show_documentation()', {
       silent = true,
       nowait = true,
       expr = true,
     })
+    -- <space>gs --> Signature
     keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {
       silent = true,
       expr = true,
     })
+    -- <c-x><c-o> --> Show completion
     keymap('i', '<c-x><c-o>', 'coc#refresh()', {
       silent = true,
       expr = true,
     })
+    -- <space>gr --> Refactor
     keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
+    -- <space>ge --> Definition
     keymap('n', '<leader>ge', '<Plug>(coc-definition)', {})
-    keymap('n', '<leader>ge', '<cmd>CocList diagnostics<cr>', {})
+    -- <space>ge --> Diagnostics
+    keymap('n', '<leader>gp', '<cmd>CocList diagnostics<cr>', {})
+    -- <space>g. --> Fix
     keymap('n', '<leader>g.', '<cmd>CocFix<cr>', {})
+
+    --
+    --    CoC-Utility
+    --
+    -- <c-P> --> show Commands (Ctrl+Shift+P)
+    keymap('n', '<c-P>', '<cmd>CocList vimcommands<cr>', {
+      silent = true,
+      nowait = true,
+    })
+
   end
 end
 

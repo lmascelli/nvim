@@ -2,15 +2,16 @@ vim.cmd 'highlight CocFloating ctermbg=16'
 vim.cmd 'highlight CocFloating ctermfg=White'
 vim.cmd 'highlight CocErrorFloat ctermbg=1 ctermfg=3'
 
-vim.g.coc_global_extensions = 
-  {
-    'coc-json',
-    'coc-lua',
-    'coc-pyright',
-    'coc-pairs',
-    'coc-cmake',
-    'coc-clangd'
-  }
+vim.g.coc_global_extensions = {
+  'coc-json',
+  'coc-lua',
+  'coc-pyright',
+  'coc-pairs',
+  'coc-cmake',
+  'coc-clangd',
+  'coc-sumneko-lua',
+  'coc-lists',
+}
 
 vim.g.show_documentation = function()
   vim.cmd [[

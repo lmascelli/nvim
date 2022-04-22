@@ -21,6 +21,10 @@ end
 
 local packer_ok = check_packer()
 local can_setup = false
+local shell = 'pwsh'
+if win ~= nil then
+  shell = 'powershell'
+end
 
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
@@ -78,7 +82,8 @@ local setup = function(config)
     require 'toggleterm'.setup {
       open_mapping = [[<c-\>]],
       direction = 'float',
-      float_opts = { border = 'curved' }
+      float_opts = { border = 'curved' },
+      shell = shell,
     }
 
     require 'nvim-tree'.setup {}

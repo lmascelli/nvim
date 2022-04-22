@@ -24,6 +24,8 @@ set.number = true
 set.relativenumber = true
 
 set.signcolumn = 'number'
+set.termguicolors = true
 
+vim.cmd ':colorscheme default'
 vim.cmd 'highlight CocFloating ctermbg=16'
 vim.cmd 'highlight CocFloating ctermfg=White'

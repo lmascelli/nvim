@@ -56,6 +56,7 @@ local function plugins(plug_ok)
       silent = true,
       nowait = true,
       expr = true,
+      noremap = false,
     })
     -- <space>gs --> Signature
     keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {
@@ -90,4 +91,4 @@ local function plugins(plug_ok)
   end
 end
 
-return {plugins = plugins}
+return { plugins = plugins }

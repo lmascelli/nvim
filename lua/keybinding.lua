@@ -46,7 +46,7 @@ local function plugins(plug_ok)
   if plug_ok then
 
     keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
-    
+
     -- ***********   CoC keymap   ***************
     --
     --    CoC-LSP
@@ -79,8 +79,10 @@ local function plugins(plug_ok)
     --
     --    CoC-Utility
     --
-    -- <c-P> --> show Commands (Ctrl+Shift+P)
-    keymap('n', '<c-P>', '<cmd>CocList vimcommands<cr>', {
+    -- <c-k> --> show Files (Ctrl+p)
+    keymap('n', '<c-k>', '<cmd>CocList files<cr>', {})
+    -- <c-p> --> show Commands (Ctrl+p)
+    keymap('n', '<c-p>', '<cmd>CocList vimcommands<cr>', {
       silent = true,
       nowait = true,
     })

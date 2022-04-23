@@ -27,5 +27,7 @@ set.signcolumn = 'number'
 set.termguicolors = true
 
 vim.cmd ':colorscheme default'
-vim.cmd 'highlight CocFloating ctermbg=16'
+vim.cmd 'highlight CocFloating ctermbg=Blue'
 vim.cmd 'highlight CocFloating ctermfg=White'
+vim.cmd 'highlight PMenu ctermbg=Black guibg=Black'
+vim.cmd 'highlight PMenu ctermfg=White guifg=White'

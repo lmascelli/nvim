@@ -80,8 +80,8 @@ local function plugins(plug_ok)
     --
     --    CoC-Utility
     --
-    -- <c-k> --> show Files (Ctrl+p)
-    keymap('n', '<c-k>', '<cmd>CocList files<cr>', {})
+    -- <c-k> --> show Files (Ctrl+k)
+    keymap('n', '<c-k>', '<cmd>Telescope find_files<cr>', {})
     -- <c-p> --> show Commands (Ctrl+p)
     keymap('n', '<c-p>', '<cmd>CocList vimcommands<cr>', {
       silent = true,

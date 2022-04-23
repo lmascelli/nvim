@@ -10,7 +10,6 @@ vim.g.coc_global_extensions = {
   'coc-cmake',
   'coc-clangd',
   'coc-sumneko-lua',
-  'coc-lists',
 }
 
 vim.g.show_documentation = function()

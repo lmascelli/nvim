@@ -52,11 +52,10 @@ local function plugins(plug_ok)
     --    CoC-LSP
     --
     -- <space>gk -> Documentation
-    keymap('n', '<leader>gk', 'g:show_documentation()', {
+    keymap('n', '<leader>gk', 'CocActionAsync("doHover")', {
       silent = true,
       nowait = true,
       expr = true,
-      noremap = false,
     })
     -- <space>gs --> Signature
     keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {

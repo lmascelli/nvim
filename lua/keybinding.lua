@@ -82,7 +82,7 @@ local function plugins(plug_ok)
     -- <c-k> --> show Files (Ctrl+k)
     keymap('n', '<c-k>', '<cmd>Telescope find_files<cr>', {})
     -- <c-p> --> show Commands (Ctrl+p)
-    keymap('n', '<c-p>', '<cmd>CocList vimcommands<cr>', {
+    keymap('n', '<c-p>', '<cmd>Telescope commands<cr>', {
       silent = true,
       nowait = true,
     })

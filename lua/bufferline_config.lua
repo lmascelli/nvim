@@ -1,6 +1,10 @@
 local keymap = vim.api.nvim_set_keymap
 
-require 'bufferline'.setup{}
+require 'bufferline'.setup {
+  options = {
+    show_close_icon = false,
+  }
+}
 
 keymap('n', '<a-1>', '<cmd>BufferLineGoToBuffer1<cr>', {})
 keymap('n', '<a-2>', '<cmd>BufferLineGoToBuffer2<cr>', {})

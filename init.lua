@@ -16,16 +16,12 @@ local function load_module(mod)
   return require(mod)
 end
 
-load_module('basic')
-load_module('utility')
-
 local config = {
   completion = {
     coc_enabled = true,
     lsp_enabled = true
   }
 }
-load_module('filetypes')
 
 if not vim.g.vscode then
   local plugins = load_module('plugins')
@@ -33,3 +29,7 @@ if not vim.g.vscode then
   load_module('keybinding').plugins(plugins.packer_ok)
 else
 end
+
+load_module('basic')
+load_module('utility')
+load_module('filetypes')

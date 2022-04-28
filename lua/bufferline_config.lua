@@ -1,9 +1,9 @@
 local keymap = vim.api.nvim_set_keymap
 
 require 'bufferline'.setup {
-  options = {
-    show_close_icon = false
-  }
+	options = {
+		show_close_icon = false,
+	}
 }
 
 keymap('n', '<a-1>', '<cmd>BufferLineGoToBuffer1<cr>', {})

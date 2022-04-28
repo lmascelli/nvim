@@ -52,11 +52,10 @@ local function plugins(plug_ok)
     --    CoC-LSP
     --
     -- <space>gk -> Documentation
-    keymap('n', '<leader>gk', 'g:show_documentation()', {
+    keymap('n', '<leader>gk', 'CocActionAsync("doHover")', {
       silent = true,
       nowait = true,
       expr = true,
-      noremap = false,
     })
     -- <space>gs --> Signature
     keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {
@@ -80,10 +79,10 @@ local function plugins(plug_ok)
     --
     --    CoC-Utility
     --
-    -- <c-k> --> show Files (Ctrl+p)
-    keymap('n', '<c-k>', '<cmd>CocList files<cr>', {})
+    -- <c-k> --> show Files (Ctrl+k)
+    keymap('n', '<c-k>', '<cmd>Telescope find_files<cr>', {})
     -- <c-p> --> show Commands (Ctrl+p)
-    keymap('n', '<c-p>', '<cmd>CocList vimcommands<cr>', {
+    keymap('n', '<c-p>', '<cmd>Telescope commands<cr>', {
       silent = true,
       nowait = true,
     })

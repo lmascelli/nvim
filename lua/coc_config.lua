@@ -10,17 +10,16 @@ vim.g.coc_global_extensions = {
   'coc-cmake',
   'coc-clangd',
   'coc-sumneko-lua',
-  'coc-lists',
 }
 
 vim.g.show_documentation = function()
   vim.cmd [[
   if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+  execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+  call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+  execute '!' . &keywordprg . " " . expand('<cword>')
   endif
   ]]
 end

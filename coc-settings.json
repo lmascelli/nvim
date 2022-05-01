@@ -13,6 +13,15 @@
   "Lua.telemetry.enable": false,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.0/clangd_14.0.0/bin/clangd",
   "pyright.organizeimports.provider": "pyright",
-  "powershell.powerShellExePath": "/home/leonardo/powershell/pwsh",
-  "powershell.integratedConsole.showOnStartup": false
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.powerShellAdditionalExePaths": [
+    {
+      "versionName": "7WIN",
+      "exePath": "C:/Program Files/PowerShell/7/pwsh.exe"
+    },
+    {
+      "versionName": "7LIN",
+      "exePath": "/home/leonardo/powershell/pwsh"
+    }
+  ]
 }

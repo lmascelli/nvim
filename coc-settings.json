@@ -11,7 +11,6 @@
   ],
   "python.formatting.provider": "autopep8",
   "Lua.telemetry.enable": false,
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.0/clangd_14.0.0/bin/clangd",
   "pyright.organizeimports.provider": "pyright",
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.powerShellAdditionalExePaths": [
@@ -23,5 +22,8 @@
       "versionName": "7LIN",
       "exePath": "/home/leonardo/powershell/pwsh"
     }
+  ],
+  "clangd.arguments": [
+    "--background-index"
   ]
 }

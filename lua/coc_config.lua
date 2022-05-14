@@ -11,6 +11,7 @@ vim.g.coc_global_extensions = {
   'coc-clangd',
   'coc-sumneko-lua',
   'coc-powershell',
+  'coc-snippets',
 }
 
 vim.g.show_documentation = function()

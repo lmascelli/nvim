@@ -67,6 +67,8 @@ local function plugins(plug_ok)
       silent = true,
       expr = true,
     })
+    -- <space>gf --> Format document
+    keymap('n', '<leader>gf', '<cmd>CocCommand editor.action.formatDocument<cr>', {})
     -- <space>gr --> Refactor
     keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
     -- <space>ge --> Definition

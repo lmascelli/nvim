@@ -9,9 +9,9 @@
     "cmake",
     "ps1"
   ],
-  "python.formatting.provider": "autopep8",
+  "python.formatting.provider": "black",
+  "python.analysis.typeCheckingMode": "basic",
   "Lua.telemetry.enable": false,
-  "pyright.organizeimports.provider": "pyright",
   "powershell.integratedConsole.showOnStartup": false,
   "powershell.powerShellAdditionalExePaths": [
     {

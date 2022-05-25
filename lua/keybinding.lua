@@ -17,7 +17,7 @@ keymap('n', '<leader>wo', '<cmd>split<cr>', {})
 
 -- Buffer key
 
-keymap('n', '<leader>bd', '<cmd>bd<cr>', {})
+keymap('n', '<leader>bd', '<cmd>bd!<cr>', {})
 keymap('n', '<leader>bs', '<cmd>:w<cr>', {})
 keymap('n', '<c-s>', '<cmd>:w<cr>', {})
 keymap('n', '<leader>bl', '<cmd>buffers<cr>', {})
@@ -41,6 +41,7 @@ keymap('n', '<leader>vr', '<cmd>call g:reload_vimrc()<cr>', {
 })
 keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
+keymap('t', '<escape>', '<c-\\><c-n>', {})
 
 local function plugins(plug_ok)
   if plug_ok then

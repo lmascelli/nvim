@@ -7,7 +7,8 @@
     "cpp",
     "c",
     "cmake",
-    "ps1"
+    "ps1",
+    "html"
   ],
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
@@ -30,5 +31,5 @@
   "clangd.arguments": [
     "--background-index"
   ],
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd",
 }

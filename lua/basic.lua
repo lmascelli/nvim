@@ -28,7 +28,7 @@ set.termguicolors = true
 
 vim.cmd 'au TermOpen * setlocal nonumber'
 
-set.shell = 'pwsh'
+-- set.shell = 'pwsh'
 
 vim.cmd ':colorscheme default'
 vim.cmd 'highlight CocFloating ctermbg=Black guibg=Black'

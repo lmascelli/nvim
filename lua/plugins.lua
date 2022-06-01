@@ -2,9 +2,8 @@
 local config_dir = ""
 local packer_dir = ""
 
-local win = vim.loop.os_uname().version:match 'Windows'
 function check_packer()
-  if win ~= nil then
+  if vim.g.win ~= nil then
     local win_dir = os.getenv("XDG_CONFIG_HOME")
     config_dir = win_dir .. "nvim/"
     packer_dir = win_dir .. "nvim-data\\site\\pack\\packer\\start\\"
@@ -22,14 +21,11 @@ end
 local packer_ok = check_packer()
 local can_setup = false
 local shell = 'pwsh'
-if win ~= nil then
-  shell = 'powershell'
-end
 
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
   os.execute('git clone https://github.com/wbthomason/packer.nvim ' ..
-  packer_dir .. 'packer.nvim')
+    packer_dir .. 'packer.nvim')
 else
   -- INSTALL PACKER --
   -- DOWNLOAD PLUGINS --

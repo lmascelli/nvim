@@ -1,3 +1,5 @@
+vim.g.win = vim.loop.os_uname().version:match 'Windows'
+
 if loaded_modules == nil then
   loaded_modules = {}
 else

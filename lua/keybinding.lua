@@ -20,6 +20,7 @@ keymap('n', '<leader>wo', '<cmd>split<cr>', {})
 keymap('n', '<leader>bd', '<cmd>bd!<cr>', {})
 keymap('n', '<leader>bs', '<cmd>:w<cr>', {})
 keymap('n', '<c-s>', '<cmd>:w<cr>', {})
+keymap('i', '<c-s>', '<cmd>:w<cr>', {})
 keymap('n', '<leader>bl', '<cmd>buffers<cr>', {})
 keymap('n', '<leader>b1', '<cmd>b1<cr>', {})
 keymap('n', '<leader>b2', '<cmd>b2<cr>', {})
@@ -53,15 +54,15 @@ local function plugins(plug_ok)
     --    CoC-LSP
     --
     -- <space>gk -> Documentation
-    keymap('n', '<leader>gk', 'CocActionAsync("doHover")', {
+    keymap('n', 'K', 'CocActionAsync("doHover")', {
       silent = true,
       nowait = true,
       expr = true,
     })
     -- <space>gs --> Signature
-    keymap('n', '<leader>gs', 'CocActionAsync("showSignatureHelp")', {
+    keymap('i', '<c-l>', '<c-r>=CocActionAsync("showSignatureHelp")<cr>', {
       silent = true,
-      expr = true,
+      nowait = true,
     })
     -- <c-x><c-o> --> Show completion
     keymap('i', '<c-x><c-o>', 'coc#refresh()', {

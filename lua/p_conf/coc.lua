@@ -1,12 +1,16 @@
-local use = require 'packer'.use
-use { 'neoclide/coc.nvim', branch = 'release',
-      config = function()
+local packer = require 'packer'
 
-          vim.cmd 'highlight CocFloating ctermbg=16'
-          vim.cmd 'highlight CocFloating ctermfg=White'
-          vim.cmd 'highlight CocErrorFloat ctermbg=1 ctermfg=3'
+local install = function()
+    packer.use { 'neoclide/coc.nvim', branch = 'release', }
+end
 
-          vim.g.coc_global_extensions = {
+local config = function()
+
+    vim.cmd 'highlight CocFloating ctermbg=16'
+    vim.cmd 'highlight CocFloating ctermfg=White'
+    vim.cmd 'highlight CocErrorFloat ctermbg=1 ctermfg=3'
+
+    vim.g.coc_global_extensions = {
  'coc-json',
  'coc-lua',
  'coc-pyright',
@@ -16,10 +20,10 @@ use { 'neoclide/coc.nvim', branch = 'release',
  'coc-sumneko-lua',
  'coc-powershell',
  'coc-snippets',
-          }
+    }
 
-          vim.g.show_documentation = function()
-              vim.cmd [[
+    vim.g.show_documentation = function()
+        vim.cmd [[
   if (index(['vim','help'], &filetype) >= 0)
   execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
@@ -28,44 +32,45 @@ use { 'neoclide/coc.nvim', branch = 'release',
   execute '!' . &keywordprg . " " . expand('<cword>')
   endif
   ]]
-          end
+    end
 
-          -- ***********   CoC keymap   ***************
-          --
-          --    CoC-LSP
-          --
-          -- <space>gk -> Documentation
+    -- ***********   CoC keymap   ***************
+    --
+    --    CoC-LSP
+    --
+    -- <space>gk -> Documentation
 
-          local keymap = vim.api.nvim_set_keymap
+    local keymap = vim.api.nvim_set_keymap
 
-          keymap('n', 'K', 'CocActionAsync("doHover")', {
+    keymap('n', 'K', 'CocActionAsync("doHover")', {
   silent = true,
   nowait = true,
   expr = true,
-          })
-          -- <space>gs --> Signature
-          keymap('i', '<c-l>', '<c-r>=CocActionAsync("showSignatureHelp")<cr>', {
+    })
+    -- <space>gs --> Signature
+    keymap('i', '<c-l>', '<c-r>=CocActionAsync("showSignatureHelp")<cr>', {
   silent = true,
   nowait = true,
-          })
-          -- <c-x><c-o> --> Show completion
-          keymap('i', '<c-x><c-o>', 'coc#refresh()', {
+    })
+    -- <c-x><c-o> --> Show completion
+    keymap('i', '<c-x><c-o>', 'coc#refresh()', {
   silent = true,
   expr = true,
-          })
-          -- <space>gf --> Format document
-          keymap('n', '<leader>gf', '<cmd>CocCommand editor.action.formatDocument<cr>', {})
-          -- <space>gr --> Refactor
-          keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
-          -- <space>ge --> Definition
-          keymap('n', '<leader>ge', '<Plug>(coc-definition)', {})
-          -- <space>ge --> Diagnostics
-          keymap('n', '<leader>gp', '<cmd>CocList diagnostics<cr>', {})
-          -- <space>g. --> Fix
-          keymap('n', '<leader>g.', '<cmd>CocFix<cr>', {})
-      end
-}
+    })
+    -- <space>gf --> Format document
+    keymap('n', '<leader>gf', '<cmd>CocCommand editor.action.formatDocument<cr>', {})
+    -- <space>gr --> Refactor
+    keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
+    -- <space>ge --> Definition
+    keymap('n', '<leader>ge', '<Plug>(coc-definition)', {})
+    -- <space>ge --> Diagnostics
+    keymap('n', '<leader>gp', '<cmd>CocList diagnostics<cr>', {})
+    -- <space>g. --> Fix
+    keymap('n', '<leader>g.', '<cmd>CocFix<cr>', {})
+end
 
 
 return {
+  install = install,
+  config = config,
 }

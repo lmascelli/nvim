@@ -1,9 +1,14 @@
-local use = require 'packer'.use
-use {
- 'nvim-treesitter/nvim-treesitter',
- run = ':TSUpdate',
- config = function()
-     require 'nvim-treesitter.configs'.setup {
+local packer = require 'packer'
+
+local install = function()
+    packer.use {
+  'nvim-treesitter/nvim-treesitter',
+  run = ':TSUpdate',
+    }
+end
+
+local config = function()
+    require 'nvim-treesitter.configs'.setup {
  highlight = {
   enable = true,
   -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -12,12 +17,15 @@ use {
   -- Instead of true it can also be a list of languages
   additional_vim_regex_highlighting = false,
  },
-     }
-     require 'nvim-treesitter.configs'.setup {
+    }
+    require 'nvim-treesitter.configs'.setup {
  indent = {
   enable = true
  }
-     }
+    }
+end
 
- end
+return {
+  install = install,
+  config = config,
 }

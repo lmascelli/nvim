@@ -1,3 +1,17 @@
+-- PLUGINS LIST
+
+local plugins = {
+  'lsp',
+  'bufferline',
+  'treesitter',
+  'tabout',
+  'toggleterm',
+  'nvim-tree',
+  'lualine',
+  'nvim-telescope',
+}
+
+
 -- CHECK PACKER INSTALLATION
 local config_dir = ""
 local packer_dir = ""
@@ -20,7 +34,6 @@ end
 
 local packer_ok = check_packer()
 local can_setup = false
-local shell = 'pwsh'
 
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
@@ -31,21 +44,19 @@ else
 	-- DOWNLOAD PLUGINS --
 	require 'packer'.startup(function()
 		use 'wbthomason/packer.nvim'
-		use 'akinsho/toggleterm.nvim'
-		use 'kyazdani42/nvim-tree.lua'
-		use {
-			'nvim-lualine/lualine.nvim',
-			requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-		}
-		use {
-			'nvim-telescope/telescope.nvim',
-			requires = { { 'nvim-lua/plenary.nvim' } }
-		}
 
-		require 'p_conf.lsp'
-		require 'p_conf.bufferline'
-		require 'p_conf.treesitter'
-    require 'p_conf.tabout'
+    for _, p in pairs(plugins) do
+      require ('p_conf.' .. p).install()
+    end
+
+    use {'windwp/nvim-autopairs',
+    config = function()
+      local npairs = require 'nvim-autopairs'
+      npairs.setup {
+        map_cr = true
+      }
+    end
+  }
 	end
 	)
 	vim.cmd ':PackerInstall'
@@ -70,18 +81,9 @@ end
 
 local setup = function(config)
 	if can_setup then
-
-		-- toggleterm --
-		require 'toggleterm'.setup {
-			open_mapping = [[<c-\>]],
-			direction = 'float',
-			float_opts = { border = 'curved' },
-			shell = shell,
-		}
-
-		require 'nvim-tree'.setup {}
-
-		require 'lualine'.setup { options = { theme = 'gruvbox_dark' } }
+    for _, p in pairs(plugins) do
+      require ('p_conf.' .. p).config()
+    end
 	end
 end
 

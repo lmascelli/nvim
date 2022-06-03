@@ -49,36 +49,6 @@ local function plugins(plug_ok)
 
     keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
 
-    -- ***********   CoC keymap   ***************
-    --
-    --    CoC-LSP
-    --
-    -- <space>gk -> Documentation
-    keymap('n', 'K', 'CocActionAsync("doHover")', {
-      silent = true,
-      nowait = true,
-      expr = true,
-    })
-    -- <space>gs --> Signature
-    keymap('i', '<c-l>', '<c-r>=CocActionAsync("showSignatureHelp")<cr>', {
-      silent = true,
-      nowait = true,
-    })
-    -- <c-x><c-o> --> Show completion
-    keymap('i', '<c-x><c-o>', 'coc#refresh()', {
-      silent = true,
-      expr = true,
-    })
-    -- <space>gf --> Format document
-    keymap('n', '<leader>gf', '<cmd>CocCommand editor.action.formatDocument<cr>', {})
-    -- <space>gr --> Refactor
-    keymap('n', '<leader>gr', '<Plug>(coc-rename)', {})
-    -- <space>ge --> Definition
-    keymap('n', '<leader>ge', '<Plug>(coc-definition)', {})
-    -- <space>ge --> Diagnostics
-    keymap('n', '<leader>gp', '<cmd>CocList diagnostics<cr>', {})
-    -- <space>g. --> Fix
-    keymap('n', '<leader>g.', '<cmd>CocFix<cr>', {})
 
     --
     --    CoC-Utility

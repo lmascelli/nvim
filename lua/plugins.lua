@@ -3,19 +3,19 @@ local config_dir = ""
 local packer_dir = ""
 
 function check_packer()
-  if vim.g.win ~= nil then
-    local win_dir = os.getenv("XDG_CONFIG_HOME")
-    config_dir = win_dir .. "nvim/"
-    packer_dir = win_dir .. "nvim-data\\site\\pack\\packer\\start\\"
-  else
-    config_dir = os.getenv("HOME") .. "/.config/nvim"
-    packer_dir = os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/start/"
-  end
-  if vim.fn.isdirectory(packer_dir .. 'packer.nvim') == 1 then
-    return true
-  else
-    return false
-  end
+	if vim.g.win ~= nil then
+		local win_dir = os.getenv("XDG_CONFIG_HOME")
+		config_dir = win_dir .. "nvim/"
+		packer_dir = win_dir .. "nvim-data\\site\\pack\\packer\\start\\"
+	else
+		config_dir = os.getenv("HOME") .. "/.config/nvim"
+		packer_dir = os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/start/"
+	end
+	if vim.fn.isdirectory(packer_dir .. 'packer.nvim') == 1 then
+		return true
+	else
+		return false
+	end
 end
 
 local packer_ok = check_packer()
@@ -24,74 +24,65 @@ local shell = 'pwsh'
 
 -- CHECK PACKER DOWNLOADED --
 if (packer_ok ~= true) then
-  os.execute('git clone https://github.com/wbthomason/packer.nvim ' ..
-    packer_dir .. 'packer.nvim')
+	os.execute('git clone https://github.com/wbthomason/packer.nvim ' ..
+		packer_dir .. 'packer.nvim')
 else
-  -- INSTALL PACKER --
-  -- DOWNLOAD PLUGINS --
-  require 'packer'.startup(function()
-    use 'wbthomason/packer.nvim'
-    --  use {'neovim/nvim-lspconfig'}
-    use { 'neoclide/coc.nvim', branch = 'release' }
-    use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-    use 'akinsho/toggleterm.nvim'
-    use 'kyazdani42/nvim-tree.lua'
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
-    }
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    use {
-      'nvim-telescope/telescope.nvim',
-      requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-  end
-  )
-  vim.cmd ':PackerInstall'
+	-- INSTALL PACKER --
+	-- DOWNLOAD PLUGINS --
+	require 'packer'.startup(function()
+		use 'wbthomason/packer.nvim'
+		use 'akinsho/toggleterm.nvim'
+		use 'kyazdani42/nvim-tree.lua'
+		use {
+			'nvim-lualine/lualine.nvim',
+			requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		}
+		use {
+			'nvim-telescope/telescope.nvim',
+			requires = { { 'nvim-lua/plenary.nvim' } }
+		}
 
-  local packer_installed = config_dir .. 'packer_installed'
-  if vim.fn.filereadable(packer_installed) == 0 then
-    os.execute('echo "" >> ' .. packer_installed)
-  else
-    local plugins_downloaded = config_dir .. 'plugin_downloaded'
-    if vim.fn.filereadable(plugins_downloaded) == 0 then
-      os.execute('echo "" >> ' .. plugins_downloaded)
-    else
-      local plugins_downloaded = config_dir .. 'plugin_downloaded'
-      if vim.fn.filereadable(plugins_downloaded) == 0 then
-        os.execute('echo "" >> ' .. plugins_downloaded)
-      else
-        can_setup = true
-      end
-    end
-  end
+		require 'p_conf.lsp'
+		require 'p_conf.bufferline'
+		require 'p_conf.treesitter'
+    require 'p_conf.tabout'
+	end
+	)
+	vim.cmd ':PackerInstall'
+
+	local packer_installed = config_dir .. 'packer_installed'
+	if vim.fn.filereadable(packer_installed) == 0 then
+		os.execute('echo "" >> ' .. packer_installed)
+	else
+		local plugins_downloaded = config_dir .. 'plugin_downloaded'
+		if vim.fn.filereadable(plugins_downloaded) == 0 then
+			os.execute('echo "" >> ' .. plugins_downloaded)
+		else
+			local plugins_downloaded = config_dir .. 'plugin_downloaded'
+			if vim.fn.filereadable(plugins_downloaded) == 0 then
+				os.execute('echo "" >> ' .. plugins_downloaded)
+			else
+				can_setup = true
+			end
+		end
+	end
 end
 
 local setup = function(config)
-  if can_setup then
-    -- coc.nvim --
-    require 'coc_config'
+	if can_setup then
 
-    -- bufferline --
-    require 'bufferline_config'
+		-- toggleterm --
+		require 'toggleterm'.setup {
+			open_mapping = [[<c-\>]],
+			direction = 'float',
+			float_opts = { border = 'curved' },
+			shell = shell,
+		}
 
-    -- toggleterm --
-    require 'toggleterm'.setup {
-      open_mapping = [[<c-\>]],
-      direction = 'float',
-      float_opts = { border = 'curved' },
-      shell = shell,
-    }
+		require 'nvim-tree'.setup {}
 
-    require 'nvim-tree'.setup {}
-
-    require 'treesitter'
-
-    require 'lualine'.setup { options = { theme = 'gruvbox_dark' } }
-  end
+		require 'lualine'.setup { options = { theme = 'gruvbox_dark' } }
+	end
 end
 
 return { packer_ok = packer_ok, setup = setup }

@@ -64,9 +64,9 @@ else
     if vim.fn.filereadable(packer_installed) == 0 then
         os.execute('echo "" >> ' .. packer_installed)
     else
-        vim.cmd ':PackerInstall'
         local plugins_downloaded = config_dir .. 'plugin_downloaded'
         if vim.fn.filereadable(plugins_downloaded) == 0 then
+            vim.cmd ':PackerInstall'
             os.execute('echo "" >> ' .. plugins_downloaded)
         else
             local plugins_downloaded = config_dir .. 'plugin_downloaded'

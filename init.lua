@@ -35,3 +35,6 @@ end
 load_module('basic')
 load_module('utility')
 load_module('filetypes')
+if vim.g.neovide then
+  load_module('neovide')
+end

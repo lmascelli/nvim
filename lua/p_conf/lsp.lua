@@ -1,11 +1,11 @@
 local packer = require 'packer'
 
-local install = function()
-    packer.use { 'neovim/nvim-lspconfig',
-    }
-end
-
 local config = function()
+    local path = require "nvim-lsp-installer.core.path"
+    require 'nvim-lsp-installer'.setup {}
+    vim.g.lsp_path = path.concat { vim.fn.stdpath "data", "lsp_servers" }
+
+    -- KEYBINDINGS
     local opts = { noremap = true, silent = true }
     vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -39,23 +39,23 @@ local config = function()
     local lsp_config = require 'lspconfig'
 
     lsp_config.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      runtime = {
-       version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          runtime = {
+           version = 'LuaJIT',
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          telemetry = {
+            enable = false,
+          }
+        }
       }
-    }
-  }
     }
 
     lsp_config.clangd.setup {
@@ -63,6 +63,12 @@ local config = function()
           settings = {
 
           },
+    }
+
+    lsp_config.powershell_es.setup {
+      on_attach = on_attach,
+      bundle_path = vim.g.lsp_path .. '/PowerShellEditorServices',
+      shell = 'pwsh',
     }
 
     -- -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -78,6 +84,16 @@ local config = function()
     -- 	}
     -- end
 end
+
+local install = function()
+    packer.use { 'williamboman/nvim-lsp-installer',
+                 { 'neovim/nvim-lspconfig',
+                   config = function()
+                   end,
+                 },
+    }
+end
+
 
 return {
  install = install,

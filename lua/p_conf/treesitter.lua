@@ -3,7 +3,6 @@ local packer = require 'packer'
 local install = function()
     packer.use {
   'nvim-treesitter/nvim-treesitter',
-  run = ':TSUpdate',
     }
 end
 

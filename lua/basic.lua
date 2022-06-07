@@ -26,9 +26,9 @@ set.relativenumber = false
 set.signcolumn = 'number'
 set.termguicolors = true
 
-vim.cmd 'au TermOpen * setlocal nonumber'
+set.completeopt= "longest,menuone"
 
--- set.shell = 'pwsh'
+vim.cmd 'au TermOpen * setlocal nonumber'
 
 vim.cmd ':colorscheme default'
 vim.cmd 'highlight CocFloating ctermbg=Black guibg=Black'

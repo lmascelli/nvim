@@ -13,6 +13,7 @@ local plugins = {
   'nvim-tree',
   'lualine',
   'nvim-telescope',
+  'autopairs',
 }
 
 --------------------------------------------------------------------------------
@@ -62,14 +63,6 @@ else
             require('p_conf.' .. p).install()
         end
 
-        use { 'windwp/nvim-autopairs',
-              config = function()
-                  local npairs = require 'nvim-autopairs'
-                  npairs.setup {
-        map_cr = true
-                  }
-              end
-        }
     end
     )
     vim.cmd ':PackerInstall'

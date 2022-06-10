@@ -1,7 +1,7 @@
 local packer = require 'packer'
 
 local install = function()
-    packer.use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', }
+    packer.use { 'akinsho/bufferline.nvim', 'kyazdani42/nvim-web-devicons' }
 end
 
 local config = function()

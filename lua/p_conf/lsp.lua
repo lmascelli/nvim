@@ -58,11 +58,14 @@ local config = function()
       }
     }
 
-    lsp_config.clangd.setup {
-          on_attach = on_attach,
-          settings = {
-
-          },
+    require 'clangd_extensions'.setup {
+      server = {
+        on_attach = on_attach,
+      },
+      extensions = {
+        inlay_hints = {
+        },
+      },
     }
 
     lsp_config.powershell_es.setup {
@@ -91,6 +94,7 @@ local install = function()
                    config = function()
                    end,
                  },
+                 'p00f/clangd_extensions.nvim',
     }
 end
 

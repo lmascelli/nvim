@@ -1,2 +1,2 @@
 print 'NEOVIDE CONFIG'
-vim.o.guifont = "Cascadia Code:h7"
+vim.o.guifont = "JetBrainsMono NF:h7"

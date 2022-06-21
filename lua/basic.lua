@@ -30,7 +30,6 @@ set.completeopt= "longest,menuone"
 
 vim.cmd 'au TermOpen * setlocal nonumber'
 
-vim.cmd ':colorscheme vscode'
 vim.cmd 'highlight CocFloating ctermbg=Black guibg=Black'
 vim.cmd 'highlight CocFloating ctermfg=White guifg=White'
 vim.cmd 'highlight PMenu ctermbg=Black guibg=Black'

@@ -10,7 +10,7 @@ local plugins = {
   'treesitter',
   'tabout',
   'toggleterm',
-  'nvim-tree',
+  'nvimtree',
   'lualine',
   'nvim-telescope',
   'tagbar',

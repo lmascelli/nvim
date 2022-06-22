@@ -1,10 +1,13 @@
 local packer = require 'packer'
 
 local install = function()
-		packer.use {
-			'nvim-telescope/telescope.nvim',
-			requires = { { 'nvim-lua/plenary.nvim' } }
-		}
+  packer.use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-symbols.nvim' },
+    }
+  }
 end
 
 local config = function()

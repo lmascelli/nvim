@@ -44,24 +44,4 @@ keymap('n', '<leader>qq', '<cmd>q<cr>', {})
 keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 keymap('t', '<escape>', '<c-\\><c-n>', {})
 
-local function plugins(plug_ok)
-  if plug_ok then
-
-    keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', {})
-
-
-    --
-    --    CoC-Utility
-    --
-    -- <c-k> --> show Files (Ctrl+k)
-    keymap('n', '<c-k>', '<cmd>Telescope find_files<cr>', {})
-    -- <c-p> --> show Commands (Ctrl+p)
-    keymap('n', '<c-p>', '<cmd>Telescope commands<cr>', {
-      silent = true,
-      nowait = true,
-    })
-
-  end
-end
-
-return { plugins = plugins }
+return {}

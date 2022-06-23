@@ -10,11 +10,12 @@ local plugins = {
   'treesitter',
   'tabout',
   'toggleterm',
-  'nvim-tree',
+  'nvimtree',
   'lualine',
   'nvim-telescope',
   'tagbar',
   'autopairs',
+  'vscodetheme',
 }
 
 --------------------------------------------------------------------------------
@@ -59,7 +60,6 @@ else
     -- DOWNLOAD PLUGINS --
     require 'packer'.startup(function()
         use 'wbthomason/packer.nvim'
-        use 'Mofiqul/vscode.nvim'
         for _, p in pairs(plugins) do
             require('p_conf.' .. p).install()
         end

@@ -45,7 +45,7 @@ keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 keymap('t', '<escape>', '<c-\\><c-n>', {})
 
 -- Horizontal Scrolling with mouse
-keymap('n', '<m-ScrollWheelUp', 'zhzh', {})
-keymap('n', '<m-ScrollWheelDown', 'zlzl', {})
+keymap('n', '<m-ScrollWheelUp>', 'zhzh', {})
+keymap('n', '<m-ScrollWheelDown>', 'zlzl', {})
 
 return {}

@@ -22,7 +22,7 @@ set.updatetime = 300
 
 set.number = true
 set.relativenumber = false
-set.colorcolumn = '80'
+set.colorcolumn = '81'
 
 set.signcolumn = 'number'
 set.termguicolors = true

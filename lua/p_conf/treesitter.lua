@@ -20,14 +20,6 @@ local config = function()
       enable = false
     }
   }
-  local keymap = vim.api.nvim_set_keymap -- <c-k> --> show Files (Ctrl+k)
-  keymap('n', '<c-k>', '<cmd>Telescope find_files<cr>', {})
-  -- <c-p> --> show Commands (Ctrl+p)
-  keymap('n', '<c-p>', '<cmd>Telescope commands<cr>', {
-    silent = true,
-    nowait = true,
-  })
-
 end
 
 return {

@@ -7,7 +7,16 @@ end
 local config = function()
   vim.api.nvim_set_keymap('n', '<leader>et', '<cmd>NvimTreeToggle<cr>', {})
   vim.api.nvim_set_keymap('n', '<leader>ef', '<cmd>NvimTreeFocus<cr>', {})
-  require 'nvim-tree'.setup {}
+  require 'nvim-tree'.setup {
+    view = {
+      mappings = {
+        list = {
+          {key = "cd", action = "cd"},
+          {key = "cc", action = "copy"},
+        }
+      }
+    }
+  }
 end
 
 return {

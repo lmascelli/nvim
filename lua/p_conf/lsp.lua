@@ -2,6 +2,7 @@ local packer = require 'packer'
 
 local config = function()
   local path = require "nvim-lsp-installer.core.path"
+  local lsp_config = require 'lspconfig'
   require 'nvim-lsp-installer'.setup {}
   vim.g.lsp_path = path.concat { vim.fn.stdpath "data", "lsp_servers" }
 
@@ -38,10 +39,15 @@ local config = function()
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
 
-  local lsp_config = require 'lspconfig'
+  lsp_config.util.default_config = vim.tbl_extend(
+    "force",
+    lsp_config.util.default_config,
+    {
+      on_attach = on_attach
+    }
+  )
 
   lsp_config.sumneko_lua.setup {
-    on_attach = on_attach,
     settings = {
       Lua = {
         runtime = {

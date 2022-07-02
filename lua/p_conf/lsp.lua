@@ -76,6 +76,11 @@ local config = function()
     shell = 'pwsh',
   }
 
+  lsp_config.dartls.setup {
+    on_attach = on_attach,
+  }
+
+
   -- -- Use a loop to conveniently call 'setup' on multiple servers and
   -- -- map buffer local keybindings when the language server attaches
   -- local servers = { 'clangd', 'cmake', 'pyright', 'sumneko_lua'}

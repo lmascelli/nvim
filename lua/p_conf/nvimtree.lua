@@ -5,8 +5,21 @@ local install = function()
 end
 
 local config = function()
-  vim.api.nvim_set_keymap('n', '<leader>et', '<cmd>NvimTreeToggle<cr>', {})
-  vim.api.nvim_set_keymap('n', '<leader>ef', '<cmd>NvimTreeFocus<cr>', {})
+  if vim.g.whichkey then
+    local wk = require 'which-key'
+    wk.register {
+      ['<leader>'] = {
+        e = {
+          name = '+Explorer',
+          t = {'<cmd>NvimTreeToggle<cr>', 'Toggle'},
+          f = {'<cmd>NvimTreeFocus<cr>', 'Focus'},
+        }
+      }
+    }
+  else
+    vim.api.nvim_set_keymap('n', '<leader>et', '<cmd>NvimTreeToggle<cr>', {})
+    vim.api.nvim_set_keymap('n', '<leader>ef', '<cmd>NvimTreeFocus<cr>', {})
+  end
   require 'nvim-tree'.setup {
     view = {
       mappings = {

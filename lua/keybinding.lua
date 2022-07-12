@@ -6,46 +6,96 @@ local keymap = vim.api.nvim_set_keymap
 -- Leader key --
 vim.g.mapleader = ' '
 
--- Window key
 
-keymap('n', '<leader>wh', '<c-w>h', {})
-keymap('n', '<leader>wl', '<c-w>l', {})
-keymap('n', '<leader>wj', '<c-w>j', {})
-keymap('n', '<leader>wk', '<c-w>k', {})
-keymap('n', '<leader>wv', '<cmd>vsplit<cr>', {})
-keymap('n', '<leader>wo', '<cmd>split<cr>', {})
+if vim.g.whichkey then
 
--- Buffer key
+    local wk = require 'which-key'
+    wk.register {
+    ['<leader>'] = {
+    w = {
+      name = '+Window',
+      h = { '<c-w>h', 'Left' },
+      l = { '<c-w>l', 'Right' },
+      j = { '<c-w>j', 'Down' },
+      k = { '<c-w>k', 'Up' },
+      v = { '<cmd>vsplit<cr>', 'VSplit' },
+      o = { '<cmd>split<cr>', 'HSplit' },
+    },
+    b = {
+      name = "+Buffer",
+      d = { '<cmd>bd!<cr>', 'Delete' },
+      s = { '<cmd>:w<cr>', 'Save' },
+      S = { ':w ', 'Save As' },
+      ['sa'] = { '<cmd>wa<cr>', 'Save All' },
+      l = { '<cmd>buffers<cr>', 'List buffers' },
+      ['1'] = { '<cmd>b1<cr>', 'Buffer 1' },
+      ['2'] = { '<cmd>b2<cr>', 'Buffer 2' },
+      ['3'] = { '<cmd>b3<cr>', 'Buffer 3' },
+      ['4'] = { '<cmd>b4<cr>', 'Buffer 4' },
+      ['5'] = { '<cmd>b5<cr>', 'Buffer 5' },
+      ['6'] = { '<cmd>b6<cr>', 'Buffer 6' },
+      ['7'] = { '<cmd>b7<cr>', 'Buffer 7' },
+      ['8'] = { '<cmd>b8<cr>', 'Buffer 8' },
+      ['9'] = { '<cmd>b9<cr>', 'Buffer 9' },
+    },
+    c = {
+      name = '+NeoVim Script',
+      l = { '<cmd>source %<cr>', 'Source current file' },
+      r = { '<cmd>call g:reload_vimrc()<cr>', 'Reload configuration'},
+    },
+    q = {
+      name = '+Quit',
+      q = { '<cmd>q<cr>', 'Quit current window' },
+      Q = { '<cmd>qa!<cr>', 'Quit' },
+    },
+    }
+    }
 
-keymap('n', '<leader>bd', '<cmd>bd!<cr>', {})
-keymap('n', '<leader>bs', '<cmd>:w<cr>', {})
-keymap('n', '<c-s>', '<cmd>:w<cr>', {})
-keymap('i', '<c-s>', '<cmd>:w<cr>', {})
-keymap('n', '<leader>bl', '<cmd>buffers<cr>', {})
-keymap('n', '<leader>b1', '<cmd>b1<cr>', {})
-keymap('n', '<leader>b2', '<cmd>b2<cr>', {})
-keymap('n', '<leader>b3', '<cmd>b3<cr>', {})
-keymap('n', '<leader>b4', '<cmd>b4<cr>', {})
-keymap('n', '<leader>b5', '<cmd>b5<cr>', {})
-keymap('n', '<leader>b6', '<cmd>b6<cr>', {})
-keymap('n', '<leader>b7', '<cmd>b7<cr>', {})
-keymap('n', '<leader>b8', '<cmd>b8<cr>', {})
-keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
+else
+
+    -- Window key
+
+    keymap('n', '<leader>wh', '<c-w>h', {})
+    keymap('n', '<leader>wl', '<c-w>l', {})
+    keymap('n', '<leader>wj', '<c-w>j', {})
+    keymap('n', '<leader>wk', '<c-w>k', {})
+    keymap('n', '<leader>wv', '<cmd>vsplit<cr>', {})
+    keymap('n', '<leader>wo', '<cmd>split<cr>', {})
+
+    -- Buffer key
+
+    keymap('n', '<leader>bd', '<cmd>bd!<cr>', {})
+    keymap('n', '<leader>bs', '<cmd>:w<cr>', {})
+    keymap('n', '<c-s>', '<cmd>:w<cr>', {})
+    keymap('n', '<leader>bl', '<cmd>buffers<cr>', {})
+    keymap('n', '<leader>b1', '<cmd>b1<cr>', {})
+    keymap('n', '<leader>b2', '<cmd>b2<cr>', {})
+    keymap('n', '<leader>b3', '<cmd>b3<cr>', {})
+    keymap('n', '<leader>b4', '<cmd>b4<cr>', {})
+    keymap('n', '<leader>b5', '<cmd>b5<cr>', {})
+    keymap('n', '<leader>b6', '<cmd>b6<cr>', {})
+    keymap('n', '<leader>b7', '<cmd>b7<cr>', {})
+    keymap('n', '<leader>b8', '<cmd>b8<cr>', {})
+    keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 
 
--- Utility keybindings
+    -- Utility keybindings
 
-keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
-keymap('n', '<leader>vr', '<cmd>call g:reload_vimrc()<cr>', {
+    keymap('n', '<leader>vl', '<cmd>source %<cr>', {})
+    keymap('n', '<leader>vr', '<cmd>call g:reload_vimrc()<cr>', {
   silent = true,
   nowait = true,
-})
-keymap('n', '<leader>qq', '<cmd>q<cr>', {})
-keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
-keymap('t', '<escape>', '<c-\\><c-n>', {})
+    })
+    keymap('n', '<leader>qq', '<cmd>q<cr>', {})
+    keymap('n', '<leader>qQ', '<cmd>qa!<cr>', {})
 
--- Horizontal Scrolling with mouse
+    -- Horizontal Scrolling with mouse
+
+end
+
+keymap('i', '<c-s>', '<cmd>:w<cr>', {})
+keymap('i', '<c-space>', '<c-x><c-o>', {})
 keymap('n', '<m-ScrollWheelUp>', 'zhzh', {})
 keymap('n', '<m-ScrollWheelDown>', 'zlzl', {})
-
+keymap('t', '<escape>', '<c-\\><c-n>', {})
 return {}

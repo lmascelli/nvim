@@ -8,7 +8,11 @@ local install = function()
 end
 
 local config = function()
-		require 'lualine'.setup { options = { theme = 'codedark' } }
+		require 'lualine'.setup {
+      options = {
+        theme = 'codedark'
+      }
+    }
 end
 
 return {

@@ -19,8 +19,8 @@ local function load_module(mod)
 end
 
 if not vim.g.vscode then
-  load_module('keybinding')
   load_module('plugins').setup {}
+  load_module('keybinding')
 end
 
 load_module('basic')

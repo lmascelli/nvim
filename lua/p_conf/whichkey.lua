@@ -7,7 +7,12 @@ local install = function()
 end
 
 local config = function()
-  require 'which-key'.setup {}
+  require 'which-key'.setup {
+    window = {
+      border = "double",
+    },
+  }
+  vim.g.whichkey = true
   vim.opt.timeoutlen = 500
 end
 

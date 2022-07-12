@@ -5,6 +5,7 @@
 --------------------------------------------------------------------------------
 
 local plugins = {
+  'whichkey',
   'lsp',
   'bufferline',
   'treesitter',
@@ -15,7 +16,6 @@ local plugins = {
   'nvim-telescope',
   'tagbar',
   'autopairs',
-  'whichkey',
 --  'vscodetheme',
 }
 

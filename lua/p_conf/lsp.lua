@@ -72,7 +72,9 @@ local config = function()
     },
     extensions = {
       inlay_hints = {
+        only_current_line = true,
       },
+      cmd = {"clangd", "--completion-style=detailed"},
     },
   }
 

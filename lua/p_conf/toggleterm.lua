@@ -7,7 +7,7 @@ end
 local config = function()
     local shell = 'pwsh'
     require 'toggleterm'.setup {
-       open_mapping = [[<c-\>]],
+       open_mapping = [[<c-ò>]],
        direction = 'float',
        float_opts = { border = 'curved' },
        shell = shell,

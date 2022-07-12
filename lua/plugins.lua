@@ -15,6 +15,7 @@ local plugins = {
   'nvim-telescope',
   'tagbar',
   'autopairs',
+  'whichkey',
 --  'vscodetheme',
 }
 

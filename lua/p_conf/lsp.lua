@@ -21,6 +21,7 @@ local config = function()
     if vim.g.whichkey then
         local wk = require 'which-key'
         on_attach = function(client, bufnr)
+            local opts = { noremap = true, silent = true }
             vim.api.nvim_buf_set_keymap(bufnr, 'i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
             wk.register {
         ["<leader>"] = {
@@ -138,6 +139,17 @@ local config = function()
     lsp_config.dartls.setup {
     on_attach = on_attach,
     }
+
+--    lsp_config.arduino_language_server.setup {
+--      cmd = {
+--        "arduino-language-server",
+--        "-cli-config", "C:/Users/Leonardo/.arduinoIDE/arduino-cli.yalm",
+--        "-fqbn", "arduino:avr:uno",
+--        "-cli", "arduino-cli",
+--        "-clangd", "clangd"
+--      },
+--    }
+
 end
 
 

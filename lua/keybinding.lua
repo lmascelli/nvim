@@ -9,6 +9,9 @@ vim.g.mapleader = ' '
 
 if vim.g.whichkey then
 
+    keymap("n", "<c-s>" , "<cmd>:w<cr>",{})
+    keymap("i", "<c-s>" , "<cmd>:w<cr>",{})
+
     local wk = require 'which-key'
     wk.register {
     ['<leader>'] = {

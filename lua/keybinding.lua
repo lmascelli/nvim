@@ -1,7 +1,6 @@
-local keymap = vim.api.nvim_set_keymap
-
-
 -- BASIC KEYBINDINGS --
+
+local keymap = vim.api.nvim_set_keymap
 
 -- Leader key --
 vim.g.mapleader = ' '
@@ -96,9 +95,20 @@ else
 
 end
 
+-- NOT WHICH-KEY keybinds
+
+-- saving
 keymap('i', '<c-s>', '<cmd>:w<cr>', {})
+-- completion
 keymap('i', '<c-space>', '<c-x><c-o>', {})
+-- horiziontal scrolling
 keymap('n', '<m-ScrollWheelUp>', 'zhzh', {})
 keymap('n', '<m-ScrollWheelDown>', 'zlzl', {})
+-- terminal
 keymap('t', '<escape>', '<c-\\><c-n>', {})
+-- window resize
+keymap('n', '<c-left>', '<cmd>vertical resize -2<cr>', {})
+keymap('n', '<c-right>', '<cmd>vertical resize +2<cr>', {})
+keymap('n', '<c-up>', '<cmd>resize -2<cr>', {})
+keymap('n', '<c-down>', '<cmd>resize +2<cr>', {})
 return {}

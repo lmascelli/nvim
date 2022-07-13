@@ -19,7 +19,7 @@ local config = function()
         t = {
           name = 'Telescope',
           c = {'<cmd>Telescope commands<cr>', 'Find command'},
-          s = {'<cmd>Telescope commands<cr>', 'List all finds'},
+          s = {'<cmd>Telescope<cr>', 'List all finds'},
           g = {'<cmd>Telescope live_grep<cr>', 'Grep in current directory'},
         }
       }

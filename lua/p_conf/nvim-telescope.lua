@@ -15,7 +15,7 @@ local config = function()
     local wk = require 'which-key'
     wk.register {['<c-k>'] = {'<cmd>Telescope find_files<cr>', 'Find files'}}
     wk.register {
-      ['<leader'] = {
+      ['<leader>'] = {
         t = {
           name = 'Telescope',
           c = {'<cmd>Telescope commands<cr>', 'Find command'},

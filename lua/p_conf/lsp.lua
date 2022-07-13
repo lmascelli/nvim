@@ -20,7 +20,8 @@ local config = function()
     local on_attach
     if vim.g.whichkey then
         local wk = require 'which-key'
-        on_attach = function()
+        on_attach = function(client, bufnr)
+            vim.api.nvim_buf_set_keymap(bufnr, 'i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
             wk.register {
         ["<leader>"] = {
           l = {
@@ -76,7 +77,7 @@ local config = function()
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-            --            vim.api.nvim_buf_set_keymap(bufnr, 'i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+            vim.api.nvim_buf_set_keymap(bufnr, 'i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lwa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lwr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
             vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lwl',

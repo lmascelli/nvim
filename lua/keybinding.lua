@@ -26,7 +26,7 @@ if vim.g.whichkey then
       d = { '<cmd>bd!<cr>', 'Delete' },
       s = { '<cmd>:w<cr>', 'Save' },
       S = { ':w ', 'Save As' },
-      ['sa'] = { '<cmd>wa<cr>', 'Save All' },
+      a = { '<cmd>wa<cr>', 'Save All' },
       l = { '<cmd>buffers<cr>', 'List buffers' },
       ['1'] = { '<cmd>b1<cr>', 'Buffer 1' },
       ['2'] = { '<cmd>b2<cr>', 'Buffer 2' },

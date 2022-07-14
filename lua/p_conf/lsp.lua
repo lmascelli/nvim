@@ -140,15 +140,14 @@ local config = function()
     on_attach = on_attach,
     }
 
---    lsp_config.arduino_language_server.setup {
---      cmd = {
---        "arduino-language-server",
---        "-cli-config", "C:/Users/Leonardo/.arduinoIDE/arduino-cli.yalm",
---        "-fqbn", "arduino:avr:uno",
---        "-cli", "arduino-cli",
---        "-clangd", "clangd"
---      },
---    }
+    lsp_config.arduino_language_server.setup {
+      cmd = {
+        "arduino-language-server",
+        "-cli-config", "D:/arduino-cli.yalm",
+        "-fqbn", "arduino:avr:uno",
+        "-cli", "arduino-cli",
+      },
+    }
 
 end
 

@@ -30,15 +30,11 @@ if vim.g.whichkey then
       S = { ':w ', 'Save As' },
       a = { '<cmd>wa<cr>', 'Save All' },
       l = { '<cmd>buffers<cr>', 'List buffers' },
-      ['1'] = { '<cmd>b1<cr>', 'Buffer 1' },
-      ['2'] = { '<cmd>b2<cr>', 'Buffer 2' },
-      ['3'] = { '<cmd>b3<cr>', 'Buffer 3' },
-      ['4'] = { '<cmd>b4<cr>', 'Buffer 4' },
-      ['5'] = { '<cmd>b5<cr>', 'Buffer 5' },
-      ['6'] = { '<cmd>b6<cr>', 'Buffer 6' },
-      ['7'] = { '<cmd>b7<cr>', 'Buffer 7' },
-      ['8'] = { '<cmd>b8<cr>', 'Buffer 8' },
-      ['9'] = { '<cmd>b9<cr>', 'Buffer 9' },
+    },
+    s = {
+      name = "+Search",
+      s = {':%s/', 'Search', silent=false},
+      h = {'<cmd>nohl<cr>', 'highlight off'},
     },
     c = {
       name = '+NeoVim Script',
@@ -80,6 +76,10 @@ else
     keymap('n', '<leader>b8', '<cmd>b8<cr>', {})
     keymap('n', '<leader>b9', '<cmd>b9<cr>', {})
 
+    -- Search key
+ 
+    keymap('n', '<leader>ss', ':%s/', {silent=false})
+    keymap('n', '<leader>sh', '<cmd>nohl<cr>', {silent=false})
 
     -- Utility keybindings
 

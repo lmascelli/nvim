@@ -33,7 +33,8 @@ if vim.g.whichkey then
     },
     s = {
       name = "+Search",
-      s = {':%s/', 'Search', silent=false},
+      s = {'/', 'Search', silent=false},
+      r = {':%s/', 'Search', silent=false},
       h = {'<cmd>nohl<cr>', 'highlight off'},
     },
     c = {

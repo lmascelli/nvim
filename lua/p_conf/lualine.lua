@@ -10,8 +10,9 @@ end
 local config = function()
 		require 'lualine'.setup {
       options = {
-        theme = 'codedark'
-      }
+        theme = 'auto',
+--        theme = 'codedark',
+      },
     }
 end
 

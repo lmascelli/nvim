@@ -22,6 +22,7 @@ local config = function()
         local wk = require 'which-key'
         on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true }
+            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
             vim.api.nvim_buf_set_keymap(bufnr, 'i', '<c-l>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
             wk.register {
         ["<leader>"] = {

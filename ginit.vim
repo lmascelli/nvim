@@ -2,7 +2,7 @@ if exists(':GuiTabline')
   :GuiTabline 0
 endif
 if exists(':GuiFont')
-  :GuiFont! Cascadia\ Code:h10
+  :GuiFont! CaskaydiaCove\ Nerd\ Font\ Mono:h10
 endif
 if exists(':GuiScrollBar')
   :GuiScrollBar 0

@@ -9,11 +9,7 @@ local config = function()
     local wk = require 'which-key'
     wk.register {
       ['<leader>'] = {
-        e = {
-          name = '+Explorer',
-          t = {'<cmd>NvimTreeToggle<cr>', 'Toggle'},
-          f = {'<cmd>NvimTreeFocus<cr>', 'Focus'},
-        }
+          e = {'<cmd>NvimTreeToggle<cr>', 'Explorer'},
       }
     }
   else

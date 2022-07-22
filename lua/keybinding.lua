@@ -38,9 +38,11 @@ if vim.g.whichkey then
       h = {'<cmd>nohl<cr>', 'highlight off'},
     },
     c = {
-      name = '+NeoVim Script',
-      l = { '<cmd>source %<cr>', 'Source current file' },
+      name = '+Script',
+      c = { '<cmd>source %<cr>', 'Source current file' },
       r = { '<cmd>call g:reload_vimrc()<cr>', 'Reload configuration'},
+      l = { '<cmd>call g:project_lua()<cr>', 'run project.lua'},
+      p = { '<cmd>call g:project_ps1()<cr>', 'run project.ps1'},
     },
     q = {
       name = '+Quit',
@@ -107,6 +109,8 @@ keymap('n', '<m-ScrollWheelUp>', 'zhzh', {})
 keymap('n', '<m-ScrollWheelDown>', 'zlzl', {})
 -- terminal
 keymap('t', '<escape>', '<c-\\><c-n>', {})
+keymap('t', '<c-ì>', '~', {})
+keymap('t', '<c-\'>', '`', {})
 -- window resize
 keymap('n', '<c-left>', '<cmd>vertical resize -2<cr>', {})
 keymap('n', '<c-right>', '<cmd>vertical resize +2<cr>', {})

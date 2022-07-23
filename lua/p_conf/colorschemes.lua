@@ -4,7 +4,6 @@ local install = function()
         
   packer.use 'Mofiqul/vscode.nvim'
   packer.use 'morhetz/gruvbox'
-  packer.use 'mnishz/colorscheme-preview.vim'
 end
 
 local config = function()
@@ -16,7 +15,7 @@ local config = function()
     wk.register {
       ["<leader>a"] = {
         name = "+Apparence",
-        t = {"<cmd>:ColorschemePreview<cr>", "choose theme"},
+        t = {"<cmd>:Telescope colorscheme<cr>", "choose theme"},
       }
     }
   end

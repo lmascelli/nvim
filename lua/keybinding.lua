@@ -49,6 +49,11 @@ if vim.g.whichkey then
       q = { '<cmd>q<cr>', 'Quit current window' },
       Q = { '<cmd>qa!<cr>', 'Quit' },
     },
+    a = {
+      name = '+Apparence',
+      ['+'] = {'<cmd>lua vim.g.increase_font()<cr>', 'increase font'},
+      ['-'] = {'<cmd>lua vim.g.decrease_font()<cr>', 'decrease font'},
+    }
     }
     }
 

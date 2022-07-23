@@ -35,3 +35,5 @@ vim.cmd 'highlight CocFloating ctermbg=Black guibg=Black'
 vim.cmd 'highlight CocFloating ctermfg=White guifg=White'
 vim.cmd 'highlight PMenu ctermbg=Black guibg=Black'
 vim.cmd 'highlight PMenu ctermfg=White guifg=White'
+
+vim.g.font_name = "CaskaydiaCove\\ Nerd\\ Font\\ Mono"

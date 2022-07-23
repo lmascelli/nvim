@@ -6,6 +6,7 @@ vim.g.reload_vimrc = function()
   vim.cmd ':so $MYVIMRC'
 end
 
+
 -- exec PROJECT.PS1 script
 vim.g.project_ps1 = function()
   if (vim.fn.findfile('project.ps1') == 'project.ps1') then

@@ -1,9 +1,4 @@
-if exists(':GuiTabline')
-  :GuiTabline 0
-endif
-
 lua << EOF
-
 if vim.fn.exists(':GuiFont') then
 -- increase decrease font size
   if (vim.g.font_size == nil) then
@@ -32,10 +27,16 @@ if vim.fn.exists(':GuiFont') then
   end
   update_font()
   end
+
+if vim.fn.exists(':GuiScrollBar') then
+  vim.cmd ':GuiScrollBar 0'
+end
+
+if vim.fn.exists(':GuiPopupmenu') then
+  vim.cmd ':GuiPopupmenu 1'
+end
+
+if vim.fn.exists(':GuiTabline') then
+  vim.cmd ':GuiTabline 0'
+end
 EOF
-if exists(':GuiScrollBar')
-  :GuiScrollBar 0
-endif
-if exists(':GuiPopupmenu')
-  :GuiPopupmenu 1
-endif

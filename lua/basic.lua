@@ -17,6 +17,7 @@ set.writebackup = false
 set.cmdheight = 1
 
 set.mouse = 'a'
+set.mousemodel='extend'
 
 set.updatetime = 300
 
